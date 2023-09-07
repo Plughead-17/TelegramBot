@@ -9,12 +9,15 @@ TOKEN = TELEGRAM_TOKEN
 com = "screenfetch"
 com = "ls -la"
 
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Hello, ...")
+
 
 async def get_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data = os.popen(com).read()
     await context.bot.send_message(chat_id=update.effective_chat.id, text=data)
+
 
 if __name__ == "__main__":
     app = ApplicationBuilder().token(TOKEN).build()
